@@ -6,19 +6,19 @@ services:
       context: .
       target: app_php
       dockerfile: Dockerfile_prod
-    image: sf-docker/php:latest
+    image: fm-docker/php:latest
     restart: on-failure
     environment:
       APP_ENV: prod
       PHP_DATE_TIMEZONE: ${PHP_DATE_TIMEZONE:-UTC}
-      DATABASE_URL: 'postgres://sf_user:mysecretpassword@192.168.178.21/prod_db'
+      DATABASE_URL: 'postgres://fm_user:mysecretpassword@192.168.178.21/prod_db'
 
   nginx:
     build:
       context: .
       target: app_nginx
       dockerfile: Dockerfile_prod
-    image: sf-docker/nginx:latest
+    image: fm-docker/nginx:latest
     restart: on-failure
     depends_on:
       - php

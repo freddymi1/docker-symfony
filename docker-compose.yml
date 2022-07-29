@@ -36,7 +36,7 @@ services:
     build:
       context: .
       target: app_nginx
-    image: sf-docker/nginx:dev
+    image: fm-docker/nginx:dev
     restart: on-failure
     depends_on:
       - php
